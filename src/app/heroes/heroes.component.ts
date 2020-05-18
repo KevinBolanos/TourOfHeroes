@@ -50,7 +50,7 @@ export class HeroesComponent implements OnInit {
 
   add(name: string, score: number): void {
     name = name.trim();
-    score = 0;
+    score = score;
     if (!name) { return; }
     this.heroService.addHero({ name, score } as Hero)
       .subscribe(hero => {
