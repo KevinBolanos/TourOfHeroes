@@ -1,0 +1,25 @@
+<h2>Héroes</h2>
+<div>
+  <label>Nombre de Héroe:
+    <input #heroName />
+  </label>
+  <button (click)="add(heroName.value); heroName.value=''">
+    añadir
+  </button>
+</div>
+<div class="sort">
+  <label>Ordenar por:</label>
+  <button class="id" (click)="idClick()" [class.active]="this.idclick">id</button>
+  <button class="points" (click)="sortClick()" [class.active]="this.sortclick">puntaje</button>
+</div>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <div class="score">
+        <span class="badge">Puntaje</span> {{hero.score}}
+      </div>
+    </a>
+    <button class="delete" title="elimina héroe" (click)="delete(hero)">x</button>
+  </li>
+</ul>
